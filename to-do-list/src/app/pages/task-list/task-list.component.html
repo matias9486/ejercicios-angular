@@ -1,0 +1,31 @@
+<div class="my-4">
+    <h2>Task list</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Description</th>
+                <th scope="col">State</th>      
+                <th scope="col"></th>      
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let task of listTask">
+                <td>{{task.id}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.state}}</td>                
+                <td *ngIf="task.state === taskState.Pending; else taskComplete">
+                    <!-- finaliza tarea usando output-->
+                    <button class="btn btn-success" (click)="emitTaskId(task.id)">Finalizar</button>                    
+                </td>
+                <ng-template #taskComplete>    <!--template con identificador-->
+                    <td><button class="btn btn-success" disabled>Finalizar</button></td>
+                </ng-template>
+
+                <td><button class="btn btn-warning" (click)="emitTaskDetailsId(task.id)">Ver detalles</button></td>                
+            </tr>    
+        </tbody>
+    </table>
+</div>
+
