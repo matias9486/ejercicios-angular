@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="tasks">Task App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="tasks/add" routerLinkActive="active"><i class="bi bi-plus-lg"></i> Add</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="tasks" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-list-check"></i> List </a>
+                </li>                        
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="task-page" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="bi bi-clipboard2"></i> Exercise</a>
+                </li>                        
+            </ul>            
+        </div>
+    </div>
+</nav>

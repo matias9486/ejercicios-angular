@@ -1,0 +1,44 @@
+<div *ngIf="listTask.length !== 0; else noTasks">
+
+    <div class="my-4">
+        <h2>Task list</h2>
+        <table class="table">
+            <thead>
+                <tr>                    
+                    <th scope="col">Description</th>
+                    <th scope="col">State</th>      
+                    <th scope="col"></th>      
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr *ngFor="let task of listTask">                    
+                    <td>{{task.description}}</td>
+                    <td>{{task.state}}</td>                
+                    <td *ngIf="task.state === taskState.Pending; else taskComplete">                        
+                        <!-- finaliza tarea usando servicio-->
+                        <button class="btn btn-success text-shadow" (click)="markTaskComplete(task.id!)"><i class="bi bi-check-lg"></i> Finalize</button>                        
+                    </td>
+                    <ng-template #taskComplete>    <!--template con identificador-->
+                        <td><button class="btn btn-success text-shadow" disabled>Finalize</button></td>
+                    </ng-template>
+                    
+                    <!-- detalles tarea usando servicio -->
+                    <td><button class="btn btn-warning text-white text-shadow" [routerLink]="['/tasks/details', task.id]"><i class="bi bi-search text-white"></i> Details</button></td>                
+                    <!-- eliminar tarea usando servicio -->
+                    <td><button class="btn btn-danger text-shadow" (click)="removeTaskById(task.id!)"><i class="bi bi-trash-fill"></i> Remove</button></td>                
+                </tr>    
+            </tbody>
+        </table>
+    </div>    
+</div>
+
+
+<ng-template #noTasks>
+    <div class="alert alert-primary d-flex align-items-center" role="alert">        
+        <div>
+            <i class="bi bi-info-circle-fill"></i> No tasks added!
+        </div>
+    </div>
+</ng-template>

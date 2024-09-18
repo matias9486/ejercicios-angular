@@ -1,0 +1,14 @@
+<h2>Add Task</h2>
+
+<div class="my-2 p-4 bg-dark text-white rounded">
+    <!--usa el servicio de tareas-->
+    <form (ngSubmit)="addTarea()">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input [(ngModel)]="task.description" type="text" class="form-control" id="description" name="description" aria-describedby="descriptionHelp">
+            <div id="descriptionHelp" class="form-text text-white">Add a task description</div>
+        </div>
+        <button type="submit" class="btn btn-primary text-shadow"><i class="bi bi-plus-lg"></i> Add Task</button>        
+    </form>
+</div>
+
