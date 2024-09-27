@@ -1,3 +1,8 @@
+# ToDoList
+Proyecto en angular para administrar tareas.
+
+![Lista de tareas](captures/ToDoList.png)
+
 # Consigna
 ## Desarrollar una Mini App - Lista de Tareas (To-do List)
 La mini app será una simple lista de tareas donde los usuarios puedan:
